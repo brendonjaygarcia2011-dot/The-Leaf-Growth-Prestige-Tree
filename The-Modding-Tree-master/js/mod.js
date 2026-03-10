@@ -1,25 +1,26 @@
 let modInfo = {
-	name: "The ??? Tree",
-	author: "nobody",
-	pointsName: "points",
+	name: "The Leaf Growth Prestige Tree",
+	author: "Elitheli",
+	pointsName: "Leaves",
 	modFiles: ["layers.js", "tree.js"],
 
-	discordName: "",
+	discordName: "s",
 	discordLink: "",
 	initialStartPoints: new Decimal (10), // Used for hard resets and new players
-	offlineLimit: 1,  // In hours
+	offlineLimit: 0,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "0.01",
+	name: "TUTOL???",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
-		- Added things.<br>
-		- Added stuff.`
+	<h3>v0.01: TUTOL???</h3><br>
+	<h4>3/10/26</h4>
+		- Added Leaves.<br>
+		- Added Dead Leaves.`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -41,7 +42,9 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 
-	let gain = new Decimal(1)
+	let gain = new Decimal(0)
+	if (hasUpgrade('DL', 11)) gain = gain.plus(1)
+	if (hasUpgrade('DL', 12)) gain = gain.times(2)
 	return gain
 }
 
